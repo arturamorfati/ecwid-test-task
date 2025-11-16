@@ -2,6 +2,8 @@
 import type { Product } from "~/api/types";
 import { defineProps } from "vue";
 import { useCartStore } from "~/stores/cart";
+import Card from "./ui/card/Card.vue";
+import Button from "./ui/button/Button.vue";
 
 const props = defineProps<{ product: Product }>();
 const cartStore = useCartStore();

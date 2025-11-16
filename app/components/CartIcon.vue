@@ -2,6 +2,7 @@
 import { useCartStore } from "~/stores/cart";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
+import Button from "./ui/button/Button.vue";
 
 const cartStore = useCartStore();
 const router = useRouter();
