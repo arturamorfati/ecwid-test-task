@@ -19,8 +19,10 @@ const buy = () => cartStore.add(props.product);
     />
     <h3 class="text-lg font-semibold mt-2">{{ product.name }}</h3>
     <p class="text-gray-600 mt-1">€ {{ product.price.toFixed(2) }}</p>
+
+    <div class="h-2" />
     <Button
-      class="mt-2 w-full"
+      class="mt-auto w-full"
       @click="buy"
       >Buy</Button
     >
