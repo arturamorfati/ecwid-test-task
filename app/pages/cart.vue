@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useCartStore } from "~/stores/cart";
 import CartItem from "~/components/CartItem.vue";
+import Button from "~/components/ui/button/Button.vue";
 
 const cartStore = useCartStore();
 const items = cartStore.items;
