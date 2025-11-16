@@ -1,3 +1,5 @@
+import type { Categories, Product, Products } from "./types";
+
 export const useEcwidApi = () => {
   const storeId = 108362264;
   const token = "public_RiNvjTVVzKLhFNWyzR5fNY68u1GMHLEs";
@@ -9,9 +11,9 @@ export const useEcwidApi = () => {
   };
 
   return {
-    getCategories: (params = {}) => get("categories", params),
+    getCategories: (params = {}): Promise<Categories> => get("categories", params),
     getCategory: (id: number) => get(`categories/${id}`),
-    getProducts: (params = {}) => get("products", params),
-    getProduct: (id: number) => get(`products/${id}`),
+    getProducts: (params = {}): Promise<Products> => get("products", params),
+    getProduct: (id: number): Promise<Product> => get(`products/${id}`),
   };
 };
