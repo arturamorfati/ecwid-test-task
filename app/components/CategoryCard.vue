@@ -3,6 +3,7 @@ import type { Category } from "~/api/types";
 import { defineProps } from "vue";
 import { useRouter } from "vue-router";
 import Card from "./ui/card/Card.vue";
+import Button from "./ui/button/Button.vue";
 
 const props = defineProps<{ category: Category }>();
 const router = useRouter();
