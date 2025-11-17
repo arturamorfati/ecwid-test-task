@@ -12,8 +12,11 @@ const buy = () => cartStore.add(props.product);
 </script>
 
 <template>
-  <NuxtLink :href="`/products/${product.id}`">
-    <Card class="p-4 h-full">
+  <Card class="p-4 h-full flex flex-col">
+    <NuxtLink
+      :href="`/products/${product.id}`"
+      class="flex-1"
+    >
       <img
         :src="product.thumbnailUrl"
         class="w-full h-48 object-cover rounded-md"
@@ -27,12 +30,12 @@ const buy = () => cartStore.add(props.product);
         <p>Price:</p>
         <p class="text-gray-600 mt-1">€ {{ product.price.toFixed(2) }}</p>
       </div>
+    </NuxtLink>
 
-      <Button
-        class="w-full"
-        @click="buy"
-        >Buy</Button
-      >
-    </Card>
-  </NuxtLink>
+    <Button
+      class="w-full mt-2"
+      @click="buy"
+      >Buy</Button
+    >
+  </Card>
 </template>
