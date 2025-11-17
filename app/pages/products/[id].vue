@@ -7,38 +7,42 @@ import MyLoader from "~/components/MyLoader.vue";
 
 const route = useRoute();
 const productId = Number(route.params.id);
-const { data: productData } = useProduct(productId);
 
-const product = productData.value;
+const { data: productData, isLoading } = useProduct(productId);
+
 const cartStore = useCartStore();
 
 const buy = () => {
-  if (!product) return;
-
-  cartStore.add(product);
+  if (!productData.value) return;
+  cartStore.add(productData.value);
 };
 </script>
 
 <template>
-  <MyLoader v-if="!product" />
+  <MyLoader v-if="isLoading ?? !productData" />
 
   <div
     v-else
     class="container mx-auto p-4"
   >
     <img
-      :src="product?.imageUrl"
+      :src="productData.imageUrl"
       class="w-full h-96 object-contain rounded-md mb-4"
     />
-    <h1 class="text-3xl font-bold mb-2">{{ product.name }}</h1>
-    <p class="text-gray-600 mb-2">€ {{ product.price.toFixed(2) }}</p>
+
+    <h1 class="text-3xl font-bold mb-2">
+      {{ productData.name }}
+    </h1>
+
+    <p class="text-gray-600 mb-2">€ {{ productData.price.toFixed(2) }}</p>
+
     <p
-      v-html="product.description"
+      v-html="productData.description"
       class="mb-4"
     ></p>
+
     <Button
       class="w-full"
-      :disabled="!product"
       @click="buy"
       >Buy</Button
     >
