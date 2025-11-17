@@ -1,4 +1,3 @@
-// app/stores/cart.ts
 import { defineStore } from "pinia";
 import { computed } from "vue";
 import type { Product } from "~/api/types";
@@ -20,8 +19,7 @@ export interface CartItem {
 export const useCartStore = defineStore("cart", () => {
   const items = useCookie<CartItem[]>("ecwid_cart", {
     default: () => [],
-    sameSite: "lax",
-    secure: true,
+    watch: true,
   });
 
   const add = (product: Product, qty = 1) => {
@@ -45,11 +43,15 @@ export const useCartStore = defineStore("cart", () => {
   };
 
   const remove = (productId: number) => {
-    items.value = items.value.filter((i) => i.productId !== productId);
+    const idx = items.value.findIndex((i) => i.productId === productId);
+
+    if (idx !== -1) {
+      items.value.splice(idx, 1);
+    }
   };
 
   const clear = () => {
-    items.value = [];
+    items.value.splice(0, items.value.length);
   };
 
   const count = computed(() => items.value.reduce((sum, i) => sum + i.qty, 0));

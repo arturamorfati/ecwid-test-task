@@ -11,6 +11,10 @@ const placeOrder = () => {
   alert("Congratulations! Your order is placed.");
   cartStore.clear();
 };
+
+const clearCart = () => {
+  cartStore.clear();
+};
 </script>
 
 <template>
@@ -26,11 +30,14 @@ const placeOrder = () => {
         :item="item"
       />
       <p class="text-xl font-semibold mt-4">Total: € {{ totalPrice.toFixed(2) }}</p>
-      <Button
-        class="mt-4"
-        @click="placeOrder"
-        >Place Order</Button
-      >
+      <div class="flex gap-2 mt-4">
+        <Button @click="placeOrder">Place Order</Button>
+        <Button
+          class="bg-red-500 hover:bg-red-600"
+          @click="clearCart"
+          >Clear Cart</Button
+        >
+      </div>
     </div>
   </div>
 </template>
