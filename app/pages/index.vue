@@ -9,11 +9,10 @@ const { data: productsData } = useProducts();
 const { data: categoriesData } = useCategories();
 
 const products = computed(() => productsData?.value?.items || []);
-const categories = computed(() => categoriesData?.value?.items || []);
+const categories = computed(() => categoriesData?.value?.items.filter((c) => !c.parentId) || []);
 </script>
 
 <template>
-
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Categories</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
