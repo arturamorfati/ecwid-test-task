@@ -4,7 +4,7 @@ import CartIcon from "~/components/CartIcon.vue";
 
 <template>
   <div class="min-h-screen flex flex-col">
-    <header class="bg-white shadow p-4 flex justify-between items-center">
+    <header class="bg-white shadow p-4 flex justify-between items-center sticky top-0">
       <NuxtLink
         to="/"
         class="text-xl font-bold"
