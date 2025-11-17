@@ -6,12 +6,18 @@ type EcwidApiResponse<ItemType> = {
   total: number;
 };
 
+export type CategoriesParams = {
+  productIds?: boolean;
+  parent?: number;
+};
+
 export type Categories = EcwidApiResponse<Category>;
 
 export type Category = {
   id: number;
   orderBy: number;
   name: string;
+  parentId?: number;
   nameTranslated: {
     nl: string;
   };
@@ -30,6 +36,8 @@ export type Category = {
   alt: {
     main: string;
   };
+  thumbnailUrl?: string;
+  imageUrl?: string;
 };
 
 export type Products = EcwidApiResponse<Product>;

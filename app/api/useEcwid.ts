@@ -1,4 +1,4 @@
-import type { Categories, Product, Products } from "./types";
+import type { Categories, CategoriesParams, Category, Product, Products } from "./types";
 
 export const useEcwidApi = () => {
   const storeId = 108362264;
@@ -11,8 +11,8 @@ export const useEcwidApi = () => {
   };
 
   return {
-    getCategories: (params = {}): Promise<Categories> => get("categories", params),
-    getCategory: (id: number) => get(`categories/${id}`),
+    getCategories: (params: CategoriesParams = {}): Promise<Categories> => get("categories", params),
+    getCategory: (id: number): Promise<Category> => get(`categories/${id}`),
     getProducts: (params = {}): Promise<Products> => get("products", params),
     getProduct: (id: number): Promise<Product> => get(`products/${id}`),
   };
