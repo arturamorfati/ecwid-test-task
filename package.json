@@ -14,7 +14,6 @@
     "@nuxt/image": "^2.0.0",
     "@pinia/nuxt": "^0.11.3",
     "@tanstack/vue-query": "^5.91.1",
-    "@vueuse/integrations": "^14.0.0",
     "@vueuse/nuxt": "^14.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -25,7 +24,6 @@
     "reka-ui": "^2.6.0",
     "shadcn-nuxt": "^2.3.3",
     "tailwind-merge": "^3.4.0",
-    "universal-cookie": "^7.2.2",
     "vue": "^3.5.24",
     "vue-router": "^4.6.3"
   },

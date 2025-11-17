@@ -1,8 +1,8 @@
 // app/stores/cart.ts
 import { defineStore } from "pinia";
 import { computed } from "vue";
-import { useLocalStorage } from "@vueuse/core";
 import type { Product } from "~/api/types";
+import { useCookie } from "#imports";
 
 export interface CartItemSnapshot {
   id: number;
@@ -18,7 +18,11 @@ export interface CartItem {
 }
 
 export const useCartStore = defineStore("cart", () => {
-  const items = useLocalStorage<CartItem[]>("ecwid_cart", []);
+  const items = useCookie<CartItem[]>("ecwid_cart", {
+    default: () => [],
+    sameSite: "lax",
+    secure: true,
+  });
 
   const add = (product: Product, qty = 1) => {
     const idx = items.value.findIndex((i) => i.productId === product.id);

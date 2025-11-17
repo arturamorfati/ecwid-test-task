@@ -7,7 +7,7 @@ import Button from "./ui/button/Button.vue";
 const cartStore = useCartStore();
 const router = useRouter();
 
-const count = computed(() => cartStore.count);
+const count = computed(() => (cartStore?.count ? cartStore.count : 0));
 
 const goToCart = () => router.push("/cart");
 </script>
