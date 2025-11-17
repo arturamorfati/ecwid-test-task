@@ -8,12 +8,17 @@ import Button from "./ui/button/Button.vue";
 const props = defineProps<{ category: Category }>();
 const router = useRouter();
 
-const goToCategory = () => router.push(`/category/${props.category.id}`);
+const goToCategory = () => router.push(`/categories/${props.category.id}`);
 </script>
 
 <template>
   <Card class="p-4">
     <h3 class="text-lg font-semibold mt-2">{{ category.name }}</h3>
+
+    <img
+      :src="category.thumbnailUrl"
+      :alt="category.alt.main"
+    />
     <Button
       class="mt-2 w-full"
       @click="goToCategory"
