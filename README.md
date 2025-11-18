@@ -15,7 +15,7 @@ The app includes:
 
 ## Live Demo
 
-> (Add your demo URL here if available)
+[https://ecwid-test-task.vercel.app/ecwid-test-task/](https://ecwid-test-task.vercel.app/ecwid-test-task/)
 
 ## Technologies
 
