@@ -6,7 +6,7 @@ export const useCategories = (params: CategoriesParams = {}) => {
   const api = useEcwidApi();
 
   return useQuery({
-    queryKey: ["categories"],
+    queryKey: ["categories", params],
     queryFn: () => api.getCategories(params),
   });
 };

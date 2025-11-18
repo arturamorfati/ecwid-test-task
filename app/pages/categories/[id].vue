@@ -39,7 +39,10 @@ const products = computed(() => productsData.value?.items || []);
       />
     </h1>
 
-    <div class="mb-10">
+    <div
+      v-if="subcategories.length"
+      class="mb-10"
+    >
       <h2 class="text-xl font-semibold mb-3">Subcategories</h2>
 
       <div
