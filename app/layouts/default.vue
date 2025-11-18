@@ -2,6 +2,7 @@
 import CartIcon from "~/components/CartIcon.vue";
 import { useRoute, useRouter } from "vue-router";
 import { computed } from "vue";
+import Button from "~/components/ui/button/Button.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -15,13 +16,13 @@ const goBack = () => router.back();
   <div class="min-h-screen flex flex-col">
     <header class="bg-white shadow p-4 flex justify-between items-center sticky top-0">
       <div class="flex items-center gap-4">
-        <button
+        <Button
           v-if="showBackButton"
-          class="px-3 py-1 border rounded hover:bg-gray-100"
+          class="px-3 py-1 border rounded inline-flex items-center gap-2"
           @click="goBack"
         >
           ← Back
-        </button>
+        </Button>
 
         <NuxtLink
           to="/"
