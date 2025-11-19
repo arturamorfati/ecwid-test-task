@@ -18,7 +18,7 @@ const imageSrc = computed(() =>
 
 <template>
   <Card class="p-4 h-full flex flex-col">
-    <NuxtLink :href="`/products/${product.id}`" class="flex-1">
+    <NuxtLink :to="`/products/${product.id}`" class="flex-1">
       <NuxtImg
         :src="imageSrc"
         format="webp"
